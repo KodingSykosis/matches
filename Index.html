@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Array Extensions Demo</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./RegEx-Matches.js"></script>
+</head>
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var output = $('#output');
+                var re = /('[^']+'|(?!\\)"[^"]+"|[^,]+)/g;
+                var str = "foo,bar,'fu, bar'";
+
+                output.append(str);
+
+                var list = $('<ul>', {appendTo: output});
+                var matches = re.matches(str);
+
+                matches.forEach(function(s) {
+                    list.append($('<li>', { text: s }));
+                });
+            });
+        </script>
+        <h1>Hello RegEx-Matches.js World!... OMG!</h1>
+        <div><br /></div>
+        <div id="output"></div>
+        <div><br /></div>
+    </body>
+</html>
